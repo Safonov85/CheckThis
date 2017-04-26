@@ -18,6 +18,19 @@ public class Main
 	static int primeInput = 0;
 	static double primeResult = 0;
 	static boolean isPrime;
+	
+	// Cost of Tile Variables
+	static double squareInput;
+	static double tileCost = 200;
+	static double costResult;
+	
+	// Monthly payments mortgage Variables
+	static double paymentPerMonth = 0;
+	static double interestYear = 0;
+	static double interestMonth = 0;
+	static double amountLoan = 0;
+	static int years = 0;
+	
 
 	
 	public static void main(String[] args)
@@ -28,6 +41,8 @@ public class Main
 	static void CalculateStuff()
 	{
 		Scanner reader = new Scanner(System.in);
+		System.out.println("");
+		System.out.println("---- PI Decimal Places ----");
 		System.out.println("How many decimals of PI: ");
 		
 		int amount = reader.nextInt();
@@ -76,7 +91,6 @@ public class Main
 			
 			if((primeResult % 1) == 0 && primeResult != 1.0)
 			{
-				//System.out.println((int)primeResult);
 				if(primeResult == primeInput)
 				{
 					System.out.println((int)primeResult);
@@ -90,6 +104,31 @@ public class Main
 		}
 		
 		System.out.println(isPrime);
+		
+		System.out.println("");
+		System.out.println("");
+		System.out.println("---- Cost of white Ceramic Tile ----");
+		System.out.println("1m square cost 200kr");
+		System.out.print("How many Square meters do you want to buy? : ");
+		squareInput = reader.nextDouble();
+		
+		costResult = squareInput * tileCost;
+		
+		System.out.println("Your cost will be " + costResult + " kr");
+		
+		System.out.println("");
+		System.out.println("");
+		System.out.println("---- Mortgage Calculator ----");
+		System.out.print("Put in annual intrest rate: ");
+		interestYear = reader.nextDouble();
+		interestMonth = interestYear / 1200;
+		System.out.print("Put in over how many years you want to pay this: ");
+		years = reader.nextInt();
+		System.out.print("How much is the loan? : ");
+		amountLoan = reader.nextDouble();
+		paymentPerMonth = amountLoan * interestMonth / (1-1 / Math.pow(1 + interestMonth, years * 12));
+		
+		System.out.println("You will have to pay " + paymentPerMonth + " per month for " + years + " years.");
 		
 		reader.close();
 	}
