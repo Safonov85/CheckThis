@@ -31,6 +31,19 @@ public class Main
 	static double amountLoan = 0;
 	static int years = 0;
 	
+	// Change Return Program
+	static double cost = 0;
+	static double myMoney = 0;
+	static double moneyReturn = 0;
+	
+	// Decimal/Binary Variables
+	static int decimal = 0;
+	
+	// Calculator Variables
+	static String operator;
+	static double firstNumber;
+	static double secondNumber;
+	static double resultNumber;
 
 	
 	public static void main(String[] args)
@@ -129,6 +142,59 @@ public class Main
 		paymentPerMonth = amountLoan * interestMonth / (1-1 / Math.pow(1 + interestMonth, years * 12));
 		
 		System.out.println("You will have to pay " + paymentPerMonth + " per month for " + years + " years.");
+		
+		System.out.println("");
+		System.out.println("");
+		System.out.println("---- Change Return ----");
+		System.out.print("How much does it cost: ");
+		cost = reader.nextDouble();
+		System.out.print("How much money are you giving? : ");
+		myMoney = reader.nextDouble();
+		if(cost > myMoney)
+		{
+			System.out.println("Sorry. You don't have enough money.");
+		}
+		else
+		{
+			moneyReturn = myMoney - cost;
+			System.out.println("And here is " + moneyReturn + " back to you.");
+		}
+		
+		System.out.println("");
+		System.out.println("");
+		System.out.println("---- Decimal/Binary Conversion ----");
+		System.out.print("Enter decimal Number: ");
+		decimal = reader.nextInt();
+		System.out.println("Binary for that decimal is: " + Integer.toString(decimal,2));
+		
+		System.out.println("");
+		System.out.println("");
+		System.out.println("---- Simple Calc ----");
+		System.out.print("Type first Number: ");
+		firstNumber = reader.nextDouble();
+		System.out.print("Type in Operator ex. / * + - : ");
+		operator = reader.next();
+		System.out.print("Type second Number: ");
+		secondNumber = reader.nextDouble();
+		
+		if(operator.contains("/"))
+		{
+			resultNumber = firstNumber / secondNumber;
+		}
+		if(operator.contains("*"))
+		{
+			resultNumber = firstNumber * secondNumber;
+		}
+		if(operator.contains("+"))
+		{
+			resultNumber = firstNumber + secondNumber;
+		}
+		if(operator.contains("-"))
+		{
+			resultNumber = firstNumber - secondNumber;
+		}
+		
+		System.out.println(firstNumber + " " + operator + " " + secondNumber + " is " + resultNumber);
 		
 		reader.close();
 	}
