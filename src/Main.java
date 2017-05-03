@@ -44,6 +44,11 @@ public class Main
 	static double firstNumber;
 	static double secondNumber;
 	static double resultNumber;
+	
+	// Taxes calc Variables
+	static double pay;
+	static double tax;
+	static double finalPay;
 
 	
 	public static void main(String[] args)
@@ -195,6 +200,18 @@ public class Main
 		}
 		
 		System.out.println(firstNumber + " " + operator + " " + secondNumber + " is " + resultNumber);
+		
+		System.out.println("");
+		System.out.println("");
+		System.out.println("---- Your Taxes ----");
+		System.out.print("Enter How much you earn per month: ");
+		pay = reader.nextDouble();
+		System.out.print("Enter Tax amount in your area: ");
+		tax = reader.nextDouble();
+		
+		finalPay = pay - (pay * (tax * 0.01));
+		
+		System.out.print("Your final pay will be " + finalPay + "kr after taxes.");
 		
 		reader.close();
 	}
